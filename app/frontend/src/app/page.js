@@ -14,7 +14,7 @@ export default function Home() {
   // Add note
   const addNote = async () => {
     try {
-      const response = await fetch("http://localhost:5000/notes", {
+      const response = await fetch("https://notes-app-xi-sepia.vercel.app/notes", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export default function Home() {
   const handleDelete = async (event, noteId) => {
     event.stopPropagation(); // Prevent the click event from bubbling up to the parent element
     try {
-      await fetch(`http://localhost:5000/notes/${noteId}`, {
+      await fetch(`https://notes-app-xi-sepia.vercel.app/notes${noteId}`, {
         method: "DELETE",
       });
 
@@ -84,7 +84,7 @@ export default function Home() {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await fetch("http://localhost:5000/notes");
+        const response = await fetch("https://notes-app-xi-sepia.vercel.app/notes");
         const notes = await response.json();
         setNotes(notes);
       } catch (e) {
